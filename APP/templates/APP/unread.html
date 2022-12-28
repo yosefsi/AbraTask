@@ -1,0 +1,42 @@
+{% extends 'APP/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+                    <span ><a  class="hello-msg"  href="{% url 'create_massage' %}" >New Massage</a></span>
+
+                    <h5>outbox massages:</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>sender name</th>
+							<th>receiver name</th>
+                            <th>subject</th>
+                            <th>read status</th>
+
+						</tr>
+                        {% for i in massages %}
+                            <tr>
+                                 <td>{{ i.user }}</td>
+                                 <td>{{ i.receiver }}</td>
+                                 <td>{{ i.subject }} </td>
+                                <td>{{ i.is_read }} </td>
+
+
+                                <td> <a  href="{% url 'read_massage_unread' i.id %}" >read </a></td>
+                                 <td> <a href="{% url 'delete_massage_unread' i.id %}" >Delete</a></td>
+                            </tr>
+                        {% endfor %}
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock content %}

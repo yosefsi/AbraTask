@@ -1,0 +1,35 @@
+{% extends 'APP/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>sender name</th>
+							<th>receiver name</th>
+                            <th>subject</th>
+                            <th>content</th>
+                            <th>date</th>
+
+						</tr>
+
+                            <tr>
+                                 <td>{{ massages.user }}</td>
+                                 <td>{{ massages.receiver }}</td>
+                                 <td>{{ massages.subject }} </td>
+                                 <td>{{ massages.massage }} </td>
+                                 <td>{{ massages.date_created }} </td>
+                            </tr>
+
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock content %}
